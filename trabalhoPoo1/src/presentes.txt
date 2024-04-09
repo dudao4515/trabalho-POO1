@@ -1,0 +1,11 @@
+5 250 
+3 350
+2 500
+7 2000 JoãoEpitáfio
+2 500
+1 400
+8 100 LorenaBlum
+9 550 TaniaLanira
+10 600 JamjãoB
+7 150 JamjãoB
+8 200 LorenaBlum
