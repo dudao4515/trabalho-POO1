@@ -9,4 +9,8 @@
  */
 public class PedraVoadora extends Eletronico{
     
+    public PedraVoadora(int idadeMin, int consumoEnergia) {
+        super(idadeMin, consumoEnergia);
+    }
+    
 }

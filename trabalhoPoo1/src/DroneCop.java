@@ -9,4 +9,8 @@
  */
 public class DroneCop extends Eletronico{
     
+    public DroneCop(int idadeMin, int consumoEnergia) {
+        super(idadeMin, consumoEnergia);
+    }
+    
 }

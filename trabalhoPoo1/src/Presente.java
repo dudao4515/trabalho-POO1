@@ -7,6 +7,34 @@
  *
  * @author 2022122760087
  */
-public class Presente {
+public abstract class Presente {
+    private int codigo;
+    private int gramas;
+    private int idadeMin;
+
+    public Presente(int idadeMin) {
+        this.idadeMin = idadeMin;
+    }
+    
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public int getGramas() {
+        return gramas;
+    }
+
+    public int getIdadeMin() {
+        return idadeMin;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setGramas(int gramas) {
+        this.gramas = gramas;
+    }
+    
     
 }

@@ -9,4 +9,8 @@
  */
 public class MiniGame extends Eletronico{
     
+    public MiniGame(int idadeMin, int consumoEnergia) {
+        super(idadeMin, consumoEnergia);
+    }
+    
 }

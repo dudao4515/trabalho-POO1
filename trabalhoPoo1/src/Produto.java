@@ -29,7 +29,15 @@ public class Produto {
     }
 
     public void setQuantidadeP(int quantidadeP) {
-        //this.quantidadeP = quantidadeP;
+        this.quantidadeP = quantidadeP;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "nomeP=" + nomeP + ", quantidadeP=" + quantidadeP + '}';
     }
     
+    
+    
 }
+

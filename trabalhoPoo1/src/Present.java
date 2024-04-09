@@ -7,10 +7,6 @@
  *
  * @author 2022122760087
  */
-public class LanitaControladora extends Eletronico{
-    
-    public LanitaControladora(int idadeMin, int consumoEnergia) {
-        super(idadeMin, consumoEnergia);
-    }
+public class Present {
     
 }

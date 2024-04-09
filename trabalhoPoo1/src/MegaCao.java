@@ -7,10 +7,10 @@
  *
  * @author 2022122760087
  */
-public class LanitaControladora extends Eletronico{
+public class MegaCao extends Manufatura {
     
-    public LanitaControladora(int idadeMin, int consumoEnergia) {
-        super(idadeMin, consumoEnergia);
+    public MegaCao(String produtor, int idadeMin) {
+        super(produtor, idadeMin);
     }
     
 }

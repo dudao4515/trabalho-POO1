@@ -7,10 +7,10 @@
  *
  * @author 2022122760087
  */
-public class LanitaControladora extends Eletronico{
+public class LiliAlegre extends Manufatura {
     
-    public LanitaControladora(int idadeMin, int consumoEnergia) {
-        super(idadeMin, consumoEnergia);
+    public LiliAlegre(String produtor, int idadeMin) {
+        super(produtor, idadeMin);
     }
     
 }
