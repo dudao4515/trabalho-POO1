@@ -29,7 +29,7 @@ public class Produto {
     }
 
     public void setQuantidadeP(int quantidadeP) {
-        this.quantidadeP = quantidadeP;
+        //this.quantidadeP = quantidadeP;
     }
     
 }
