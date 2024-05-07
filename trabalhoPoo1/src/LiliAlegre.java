@@ -8,9 +8,10 @@
  * @author 2022122760087
  */
 public class LiliAlegre extends Manufatura {
-    
-    public LiliAlegre(String produtor, int idadeMin) {
-        super(produtor, idadeMin);
+
+    public LiliAlegre(String produtor, int codigo, int gramas, int idadeMin) {
+        super(produtor, codigo, gramas);
     }
+    
     
 }

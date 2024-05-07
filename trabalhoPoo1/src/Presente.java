@@ -12,8 +12,9 @@ public abstract class Presente {
     private int gramas;
     private int idadeMin;
 
-    public Presente(int idadeMin) {
-        this.idadeMin = idadeMin;
+    public Presente(int codigo, int gramas) {
+        this.codigo = codigo;
+        this.gramas = gramas;
     }
     
     public int getCodigo() {

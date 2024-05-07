@@ -8,9 +8,9 @@
  * @author 2022122760087
  */
 public class DroneCop extends Eletronico{
-    
-    public DroneCop(int idadeMin, int consumoEnergia) {
-        super(idadeMin, consumoEnergia);
+
+    public DroneCop(int consumoEnergia, int codigo, int gramas, int idadeMin) {
+        super(codigo, gramas);
     }
-    
+  
 }

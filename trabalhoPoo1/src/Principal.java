@@ -1,7 +1,6 @@
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 
 /*
@@ -20,7 +19,7 @@ public class Principal {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
-        FileInputStream fil = new FileInputStream("D:\\Users\\2022122760087\\Documents\\NetBeansProjects\\trabalho-POO1\\trabalhoPoo1\\src\\estoque.txt");
+        FileInputStream fil = new FileInputStream("estoque.txt");
         System.out.println(LerArquivo.lerProdutos(fil));
         
 

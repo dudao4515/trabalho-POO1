@@ -30,6 +30,8 @@ public class LerArquivo {
         return produtos;
     }
 
+    
+    //lembrar pra q caralhis eh isso
     public static List<Presente> lerPresentes(FileInputStream fil) {
         List<Presente> presentes = new ArrayList();
 
@@ -37,23 +39,30 @@ public class LerArquivo {
         while (scan.hasNext()) {
             int codigo = scan.nextInt();
             int grama = scan.nextInt();
-            if (codigo >= 6) {
-                String produtor = scan.next();
-                Presente presentes = new Presente(codigo, grama, produtor);
+            Presente presente;
+            if (codigo < 6) {
+                switch(codigo){
+                    case 1:
+                        presente = new MiniGame(codigo, grama);
+                        break;
+                }
             } else {
-                Presente presentes = new Presente(codigo, grama);
-
+                String produtor = scan.next();
+                switch(codigo){
+                    case 6:
+                        presente = new BolinhaPuff( produtor, codigo, grama);
+                        break;}
             }
             
-            produtos.add(produto);
+            presentes.add(presente);
         }
         scan.close();
 
-        return produtos;
+        return presentes;
     }
 
-    public verificaProduto(){
+    //public verificaProduto(){
 
-    }
+    //}
 
 }

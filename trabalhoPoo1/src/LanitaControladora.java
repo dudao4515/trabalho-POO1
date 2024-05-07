@@ -8,9 +8,9 @@
  * @author 2022122760087
  */
 public class LanitaControladora extends Eletronico{
-    
-    public LanitaControladora(int idadeMin, int consumoEnergia) {
-        super(idadeMin, consumoEnergia);
+
+    public LanitaControladora(int consumoEnergia, int codigo, int gramas, int idadeMin) {
+        super(codigo, gramas);
     }
-    
+        
 }

@@ -10,12 +10,11 @@
 public abstract class Manufatura extends Presente {
     private String produtor;
 
-    
-    public Manufatura(String produtor, int idadeMin) {
-        super(idadeMin);
+    public Manufatura(String produtor, int codigo, int gramas) {
+        super(codigo, gramas);
         this.produtor = produtor;
     }
-
+  
     public String getProdutor() {
         return produtor;
     }

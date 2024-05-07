@@ -7,13 +7,12 @@
  *
  * @author 2022122760087
  */
-public class Eletronico extends Presente {
+public abstract class Eletronico extends Presente {
 
     private int consumoEnergia;
 
-    public Eletronico(int idadeMin, int consumoEnergia) {
-        super(idadeMin);
-        this.consumoEnergia = consumoEnergia;
+    public Eletronico(int codigo, int gramas) {
+        super(codigo, gramas);
     }
 
     public int getConsumoEnergia() {

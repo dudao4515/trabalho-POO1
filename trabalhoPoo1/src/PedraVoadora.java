@@ -8,9 +8,9 @@
  * @author 2022122760087
  */
 public class PedraVoadora extends Eletronico{
-    
-    public PedraVoadora(int idadeMin, int consumoEnergia) {
-        super(idadeMin, consumoEnergia);
+
+    public PedraVoadora(int consumoEnergia, int codigo, int gramas, int idadeMin) {
+        super(codigo, gramas);
     }
     
 }

@@ -8,9 +8,9 @@
  * @author 2022122760087
  */
 public class EspadaPau extends Manufatura {
-    
-    public EspadaPau(String produtor, int idadeMin) {
-        super(produtor, idadeMin);
+
+    public EspadaPau(String produtor, int codigo, int gramas, int idadeMin) {
+        super(produtor, codigo, gramas);
     }
-    
+     
 }

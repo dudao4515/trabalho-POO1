@@ -8,9 +8,11 @@
  * @author 2022122760087
  */
 public class LaraLarinha extends Manufatura {
-    
-    public LaraLarinha(String produtor, int idadeMin) {
-        super(produtor, idadeMin);
+
+    public LaraLarinha(String produtor, int codigo, int gramas, int idadeMin) {
+        super(produtor, codigo, gramas);
     }
+    
+    
     
 }
