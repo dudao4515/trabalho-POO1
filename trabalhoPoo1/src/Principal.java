@@ -23,13 +23,13 @@ public class Principal {
         try {
             fil = new FileInputStream("estoque.txt");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
         System.out.println(LerArquivo.lerProdutos(fil));
         try {
             fil = new FileInputStream("presentes.txt");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
         System.out.println(LerArquivo.lerPresentes(fil));
 
