@@ -139,7 +139,7 @@ public class Producao {
     
     //e
     public static void duracaoEstoqueDias(ArrayList<Presente> presentes, ArrayList<Produto> produtos){
-        
+        // parar estoque com execao
     }
     
 }
