@@ -36,6 +36,9 @@ public abstract class Presente {
     public void setGramas(int gramas) {
         this.gramas = gramas;
     }
-    
+    @Override
+    public String toString() {
+        return "Presentes:" + "código =" + codigo + ", Gramas =" + gramas + "\n";
+    }
     
 }

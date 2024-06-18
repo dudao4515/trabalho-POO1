@@ -9,7 +9,7 @@
  */
 public class DroneCop extends Eletronico{
 
-    public DroneCop(int consumoEnergia, int codigo, int gramas, int idadeMin) {
+    public DroneCop(int codigo, int gramas) {
         super(codigo, gramas);
     }
   

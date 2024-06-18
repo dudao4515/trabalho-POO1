@@ -9,7 +9,7 @@
  */
 public class LiliAlegre extends Manufatura {
 
-    public LiliAlegre(String produtor, int codigo, int gramas, int idadeMin) {
+    public LiliAlegre(String produtor, int codigo, int gramas) {
         super(produtor, codigo, gramas);
     }
     

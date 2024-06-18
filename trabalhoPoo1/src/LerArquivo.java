@@ -35,34 +35,62 @@ public class LerArquivo {
     public static List<Presente> lerPresentes(FileInputStream fil) {
         List<Presente> presentes = new ArrayList();
 
-        Scanner scan = new Scanner(fil);
-        while (scan.hasNext()) {
-            int codigo = scan.nextInt();
-            int grama = scan.nextInt();
-            Presente presente;
-            if (codigo < 6) {
-                switch(codigo){
-                    case 1:
-                        presente = new MiniGame(codigo, grama);
-                        break;
+        try (Scanner scan = new Scanner(fil)) {
+            while (scan.hasNext()) {
+                int codigo = scan.nextInt();
+                int grama = scan.nextInt();
+                Presente presente;
+                if (codigo < 6) {
+                    switch(codigo){
+                        case 1 -> {
+                            presente = new MiniGame(codigo, grama);
+                            presentes.add(presente);
+                        }
+                        case 2 -> {
+                            presente = new DroneCop(codigo, grama);
+                            presentes.add(presente);
+                        }
+                        case 3 -> {
+                            presente = new RoboX(codigo, grama);
+                            presentes.add(presente);
+                        }
+                        case 4 -> {
+                            presente = new PedraVoadora(codigo, grama);
+                            presentes.add(presente);
+                        }
+                    }
+                } else {
+                    String produtor = scan.next();
+                    switch(codigo){
+                        case 6 -> {
+                            presente = new BolinhaPuff( produtor, codigo, grama);
+                            presentes.add(presente);
+                        }
+                        case 7 -> {
+                            presente = new EspadaPau( produtor, codigo, grama);
+                            presentes.add(presente);
+                        }
+                        case 8 -> {
+                            presente = new LaraLarinha( produtor, codigo, grama);
+                            presentes.add(presente);
+                        }
+                        case 9 -> {
+                            presente = new MegaCao( produtor, codigo, grama);
+                            presentes.add(presente);
+                        }
+                        case 10 -> {
+                            presente = new LiliAlegre( produtor, codigo, grama);
+                            presentes.add(presente);
+                        }
+                        
+                    }
                 }
-            } else {
-                String produtor = scan.next();
-                switch(codigo){
-                    case 6:
-                        presente = new BolinhaPuff( produtor, codigo, grama);
-                        break;}
+                
+                
             }
-            
-            presentes.add(presente);
         }
-        scan.close();
 
         return presentes;
     }
-
-    //public verificaProduto(){
-
-    //}
 
 }

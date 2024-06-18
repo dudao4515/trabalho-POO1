@@ -9,7 +9,7 @@
  */
 public class EspadaPau extends Manufatura {
 
-    public EspadaPau(String produtor, int codigo, int gramas, int idadeMin) {
+    public EspadaPau(String produtor, int codigo, int gramas) {
         super(produtor, codigo, gramas);
     }
      

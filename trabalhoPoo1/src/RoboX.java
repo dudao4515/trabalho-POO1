@@ -9,7 +9,7 @@
  */
 public class RoboX extends Eletronico{
 
-    public RoboX(int consumoEnergia, int codigo, int gramas, int idadeMin) {
+    public RoboX( int codigo, int gramas) {
         super(codigo, gramas);
     }
         

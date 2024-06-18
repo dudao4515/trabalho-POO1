@@ -9,7 +9,7 @@
  */
 public class MegaCao extends Manufatura {
 
-    public MegaCao(String produtor, int codigo, int gramas, int idadeMin) {
+    public MegaCao(String produtor, int codigo, int gramas) {
         super(produtor, codigo, gramas);
     }
     
