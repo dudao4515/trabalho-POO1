@@ -1,6 +1,9 @@
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /*
@@ -11,29 +14,40 @@ import java.io.FileNotFoundException;
  *
  * @author 2022122760087
  */
-
+ 
 public class Principal {
 
     /**
      * @param args the command line arguments
-     * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args){
+        ArrayList<Presente> presentes = null;
+        ArrayList<Produto> produtos = null;
+        
+        // Leitura
         FileInputStream fil = null;
-        try {
+        
+         try {
             fil = new FileInputStream("estoque.txt");
+            produtos = (ArrayList<Produto>) LerArquivo.lerProdutos(fil);
         } catch (FileNotFoundException ex) {
-            System.out.println(ex);
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(LerArquivo.lerProdutos(fil));
+
+        // Read "presentes.txt" file
         try {
             fil = new FileInputStream("presentes.txt");
+            presentes = (ArrayList<Presente>) LerArquivo.lerPresentes(fil);
         } catch (FileNotFoundException ex) {
-            System.out.println(ex);
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(LerArquivo.lerPresentes(fil));
 
+        
+        Producao producao = new Producao();
+            producao.iniciarProducao(presentes, produtos);
+        
+        
+    
     }
-
 
 }

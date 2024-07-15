@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -10,12 +13,16 @@
 public abstract class Presente {
     private int codigo;
     private int gramas;
-    private int idadeMin;
+    private final int idadeMin;
+    private int serial;
 
-    public Presente(int codigo, int gramas) {
+    public Presente(int codigo, int gramas, int idadeMin) {
         this.codigo = codigo;
         this.gramas = gramas;
+        this.idadeMin = idadeMin;
     }
+
+    public abstract Produto quantidadeProduto(ArrayList<Produto> produtos);
     
     public int getCodigo() {
         return codigo;
@@ -36,9 +43,18 @@ public abstract class Presente {
     public void setGramas(int gramas) {
         this.gramas = gramas;
     }
-    @Override
-    public String toString() {
-        return "Presentes:" + "código =" + codigo + ", Gramas =" + gramas + "\n";
+
+    public int getSerial() {
+        return serial;
+    }
+
+    public void setSerial(int serial) {
+        this.serial = serial;
     }
     
+    /*@Override
+    public String toString() {
+        return " " + codigo + gramas ;
+    }
+    */
 }

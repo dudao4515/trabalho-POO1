@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /*
@@ -12,6 +13,7 @@ import java.util.List;
  */
 public class Producao {
 
+    //erro mudar issor
     private static class Produtor {
 
         private final String nomeP;
@@ -36,11 +38,16 @@ public class Producao {
 
     }
 
-    private void iniciarProducao() {
+    void iniciarProducao(ArrayList<Presente> presentes, ArrayList<Produto> produtos) {
+        somarPesos(presentes);
+        maiorProdutor(presentes);
+        contagemDePresente(presentes);
+        imprimirDados(presentes, produtos);
+        produzir(presentes, produtos);
     }
 
     //a
-    public static void somarPesos(ArrayList<Presente> presentes) {
+    public void somarPesos(ArrayList<Presente> presentes) {
         int pesoTotal = 0;
 
         for (Presente presente : presentes) {
@@ -66,7 +73,7 @@ public class Producao {
                     }
 
                 }
-                if (existe == true) {
+                if (existe == false) {
                     Produtor produtor = new Produtor(nomeProdutor, 1);
                     produtores.add(produtor);
                 }
@@ -110,36 +117,45 @@ public class Producao {
     }
 
     //c
-    public static void contagemDePresente(ArrayList<Presente> presentes) {
+    public void contagemDePresente(ArrayList<Presente> presentes) {
         int manufatura = 0;
         int eletronico = 0;
         for (Presente presente : presentes) {
             if (presente instanceof Manufatura) {
-                manufatura ++;
-            }else{
-                eletronico ++;
+                manufatura++;
+            } else {
+                eletronico++;
             }
         }
         System.out.println("São produzidos " + eletronico + " presentes eletrônicos e " + manufatura + " manufaturas por dia.");
     }
-    
-    //d
-    public static void imprimirDados(ArrayList<Presente> presentes, ArrayList<Produto> produtos){
+
+    //d melhorar issor
+    public void imprimirDados(ArrayList<Presente> presentes, ArrayList<Produto> produtos) {
         System.out.println("Estoque: \n");
-        for (Produto produto : produtos) {
-            System.out.println(produtos + "\n");
-        }
+        System.out.println(produtos + "\n");
+
         System.out.println("Presentes a serem produzidos: \n");
-        for (Presente presente : presentes) {
-            System.out.println(presentes + "\n");
+        System.out.println(presentes + "\n");
+
+    }
+
+    //e
+    public void produzir(ArrayList<Presente> presentes, ArrayList<Produto> produtos) {
+        int dia = 0;
+        boolean i = true;
+        while (i == true) {
+            for (Presente presente : presentes) {
+                presente.quantidadeProduto(produtos).getClass();
+                if(presente != null){
+                    System.out.println("O estoque dura " + dia + "dia(s)");
+                    i = false;
+                }
+            }
+            dia++;
+          
         }
         
         
     }
-    
-    //e
-    public static void duracaoEstoqueDias(ArrayList<Presente> presentes, ArrayList<Produto> produtos){
-        // parar estoque com execao
-    }
-    
 }

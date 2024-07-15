@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -31,10 +34,21 @@ public class Produto {
     public void setQuantidadeP(int quantidadeP) {
         this.quantidadeP = quantidadeP;
     }
+    
+    public boolean decremento(ArrayList<Produto> produtos, String material, int qtMaterial){
+        for(Produto produto: produtos){
+            if(material.equals(produto.getNomeP()) && qtMaterial > produto.getQuantidadeP()){
+                produto.quantidadeP = produto.quantidadeP - qtMaterial;
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
 
     @Override
     public String toString() {
-        return "Produtos: " + "nome produto =" + nomeP + ", quantidade de produto(s) = " + quantidadeP + "\n";
+        return   nomeP + " " + quantidadeP + "\n";
     }
     
     

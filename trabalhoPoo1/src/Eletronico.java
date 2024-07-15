@@ -11,12 +11,24 @@ public abstract class Eletronico extends Presente {
 
     private int consumoEnergia;
 
-    public Eletronico(int codigo, int gramas) {
-        super(codigo, gramas);
+    public Eletronico(int consumoEnergia, int codigo, int gramas, int idadeMin) {
+        super(codigo, gramas, idadeMin);
+        this.consumoEnergia = consumoEnergia;
     }
+
+    
 
     public int getConsumoEnergia() {
         return consumoEnergia;
     }
+
+    @Override
+    public String toString() {
+        return super.getCodigo() +  " " + super.getGramas() +  "\n";
+    }
+
+    
+    
+    
 
 }
