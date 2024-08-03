@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author 2022122760087
  */
 public class BolinhaPuff extends Manufatura {
-
+    
     public BolinhaPuff(String produtor, int codigo, int gramas ) {
         super(produtor, codigo, gramas, 3);
     }

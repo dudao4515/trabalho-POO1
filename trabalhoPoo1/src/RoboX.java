@@ -16,7 +16,7 @@ public class RoboX extends Eletronico {
     }
 
     @Override
-    public Produto quantidadeProduto(ArrayList<Produto> produtos) {
+    public Produto quantidadeProduto(ArrayList<Produto> produtos) {  
         for (Produto produto : produtos) {
             if (null != produto.getNomeP()) switch (produto.getNomeP()) {
                 case "Madeira" -> {

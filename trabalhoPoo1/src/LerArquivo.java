@@ -58,6 +58,10 @@ public class LerArquivo {
                             presente = new PedraVoadora(codigo, grama);
                             presentes.add(presente);
                         }
+                        case 5 -> {
+                            presente = new LanitaControladora(codigo, grama);
+                            presentes.add(presente);
+                        }
                     }
                 } else {
                     String produtor = scan.next();

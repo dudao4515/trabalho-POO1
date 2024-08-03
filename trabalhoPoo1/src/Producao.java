@@ -1,7 +1,9 @@
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,31 +14,6 @@ import java.util.List;
  * @author gavae
  */
 public class Producao {
-
-    //erro mudar issor
-    private static class Produtor {
-
-        private final String nomeP;
-        private int numPresentes;
-
-        public Produtor(String nomeP, int numPresentes) {
-            this.nomeP = nomeP;
-            this.numPresentes = numPresentes;
-        }
-
-        public String getNomeP() {
-            return nomeP;
-        }
-
-        public int getNumPresentes() {
-            return numPresentes;
-        }
-
-        public void setNumPresentes(int numPresentes) {
-            this.numPresentes = numPresentes;
-        }
-
-    }
 
     void iniciarProducao(ArrayList<Presente> presentes, ArrayList<Produto> produtos) {
         somarPesos(presentes);
@@ -53,65 +30,33 @@ public class Producao {
         for (Presente presente : presentes) {
             pesoTotal += presente.getGramas();
         }
-        System.out.println("O total de pesos é " + pesoTotal + "gramas");
+        System.out.println("O total de pesos é " + pesoTotal + "gramas. \n");
 
     }
 
     //b
     public static void maiorProdutor(ArrayList<Presente> presentes) {
-        List<Produtor> produtores = new ArrayList();
-
+        Map<String, Integer> produtorCt = new HashMap<>();
+        String produtorAtual = "";
         for (Presente presente : presentes) {
-            if (presente instanceof Manufatura) {
-                final String nomeProdutor = ((Manufatura) presente).getProdutor();
-                boolean existe = false;
-                for (Produtor produtor : produtores) {
-                    if (nomeProdutor.equals(produtor.getNomeP())) {
-                        produtor.numPresentes++;
-                        existe = true;
-                        break;
-                    }
-
-                }
-                if (existe == false) {
-                    Produtor produtor = new Produtor(nomeProdutor, 1);
-                    produtores.add(produtor);
-                }
-
-            }
-
-        }
-
-        int maiorNumPresente = 0;
-        for (Produtor produtor : produtores) {
-            if (maiorNumPresente < produtor.numPresentes) {
-                maiorNumPresente = produtor.numPresentes;
-            }
-
-        }
-
-        List<Produtor> maioresProdutores = new ArrayList();
-
-        for (Produtor produtor : produtores) {
-            if (produtor.numPresentes == maiorNumPresente) {
-                maioresProdutores.add(produtor);
+            if (presente instanceof Manufatura manufatura) {
+                produtorAtual = manufatura.getProdutor();
+                produtorCt.put(produtorAtual, produtorCt.getOrDefault(produtorAtual, 0) + 1);
             }
         }
-
-        if (maioresProdutores.isEmpty()) {
-            System.out.println("Não existem produtores de manufaturas.");
-        } else if (maioresProdutores.size() == 1) {
-            System.out.println(maioresProdutores.get(0).nomeP + "é o maior produtor de manufaturas. ");
+        int valorMax = Collections.max(produtorCt.values());
+        List<String> maioresProdutores = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : produtorCt.entrySet()) {
+            if (entry.getValue() == valorMax) {
+                maioresProdutores.add(entry.getKey());
+            }
+        }
+        if (maioresProdutores.size() == 1) {
+            System.out.println(maioresProdutores.get(0) + " é o maior produtor de manufaturas.");
         } else {
-            String maioresNomes = "";
-            for (int i = 0; i < maioresProdutores.size(); i++) {
-                maioresNomes = maioresNomes.concat(maioresProdutores.get(i).getNomeP());
-                if (i < maioresProdutores.size() - 1) {
-                    maioresNomes = maioresNomes.concat(" e ");
-                }
-            }
-
-            System.out.println(maioresNomes + "são os maiores produtores de manufaturas. ");
+            System.out.print(maioresProdutores.get(0) + " e " + maioresProdutores.get(1) + 
+            " são os maiores produtores de manufaturas.");
+            System.out.println("\n");
         }
 
     }
@@ -127,35 +72,71 @@ public class Producao {
                 eletronico++;
             }
         }
-        System.out.println("São produzidos " + eletronico + " presentes eletrônicos e " + manufatura + " manufaturas por dia.");
+        System.out.println("São produzidos " + eletronico + " presentes eletrônicos e " + manufatura + " manufaturas por dia.\n");
     }
 
-    //d melhorar issor
+    //d 
     public void imprimirDados(ArrayList<Presente> presentes, ArrayList<Produto> produtos) {
-        System.out.println("Estoque: \n");
-        System.out.println(produtos + "\n");
+        System.out.println("Estoque: ");
+        for (Produto produto : produtos) {
+            System.out.println(produto.getNomeP() + " " + produto.getQuantidadeP());
+        }
+        System.out.println("\n");
+        System.out.println("Presentes a serem produzidos: ");
+        for (Presente presente : presentes) {
+            if (presente instanceof Manufatura) {
+                System.out.println(presente.getCodigo() + " " + presente.getGramas() + " " + ((Manufatura) presente).getProdutor());
+            } else {
+                System.out.println(presente.getCodigo() + " " + presente.getGramas());
+            }
 
-        System.out.println("Presentes a serem produzidos: \n");
-        System.out.println(presentes + "\n");
+        }
 
     }
 
     //e
     public void produzir(ArrayList<Presente> presentes, ArrayList<Produto> produtos) {
+        System.out.println("\n");
         int dia = 0;
+        int numPresente = 0;
         boolean i = true;
-        while (i == true) {
+        while (i) {
             for (Presente presente : presentes) {
-                presente.quantidadeProduto(produtos).getClass();
-                if(presente != null){
-                    System.out.println("O estoque dura " + dia + "dia(s)");
+                if (presente.quantidadeProduto(produtos) == null) {
+                    numPresente++;
+                    presente.setSerial(numPresente);
+                    i = true;
+                } else {
+                    numPresente++;
+                    presente.setSerial(numPresente);
+                    System.out.println("O estoque dura " + dia + " dia(s). \n");
+                    printarPresente(presente);
+                    printarProduto(presente.quantidadeProduto(produtos), presente);
                     i = false;
+                    break;
                 }
             }
             dia++;
-          
         }
-        
-        
+
+    }
+
+    //f
+    public void printarPresente(Presente presente) {
+        if (presente instanceof Manufatura manufatura) {
+            System.out.println("O presente de serial " + presente.getSerial() + " não pode ser produzido. Esse presente é uma \n"
+                    + presente.getClass().getSimpleName() + " com " + presente.getGramas() + " gramas, idade mínima " + presente.getIdadeMin() + " e produtor "
+                    + manufatura.getProdutor() + ".\n");
+        } else if (presente instanceof Eletronico eletronico) {
+            System.out.println("O presente de serial " + presente.getSerial() + " não pode ser produzido. Esse presente é um(a) \n"
+                    + presente.getClass().getSimpleName() + " com " + presente.getGramas() + " gramas, idade mínima " + presente.getIdadeMin() + " e consumo de energia\n"
+                    + eletronico.getConsumoEnergia() + ".\n");
+        }
+    }
+
+    //g
+    public void printarProduto(Produto produto, Presente presente) {
+        System.out.println("Faltou " + produto.getNomeP() + " para produzir a "
+                + presente.getClass().getSimpleName() + " de serial " + presente.getSerial() + ".");
     }
 }
